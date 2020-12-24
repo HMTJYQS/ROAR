@@ -1,38 +1,32 @@
-# Robot Open Autonomous Racing (ROAR)
-### To Contribute
-- Please click the https://hmtjyqs.github.io/ROAR/[https://hmtjyqs.github.io/ROAR/] to see more details of our project
+# ROAR:Robot Open Autonomous Racing
 
-    - For a more in-depth tutorial on recommended setup [video](https://youtu.be/VA13dAZ9iAw)
-- Please follow suggested guidelines on Pull Request. 
-
-### Quick Start
-1. clone the repo
-    - `git clone --recursive https://github.com/YOURUSERNAME/ROAR.git`
-
-2. Create virtual environment with *python3.7*
-    - `conda create -n ROAR python=3.7`
-    - `conda activate ROAR`
-    
-
-3. Install Dependency
-    - General Dependency
-        - `pip install -r requirements.txt` in the ROAR folder
-    - For simulator
-        - `cd ROAR_Sim`
-        - `pip install -r requirements.txt`
-        - Download Simulator distribution for your OS
-            - https://drive.google.com/drive/folders/13JSejJED31cZHBbfIz_gyxxPmiqABOJj?usp=sharing
-    - For actual vehicle wired to your computer
-        - `cd ROAR_Jetson`
-        - `pip install -r requirements.txt`
-    - For actual vehicle running on Jetson Nano
-        - `cd ROAR_Jetson`
-        - `sudo apt-get install python-dev libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsdl1.2-dev libsmpeg-dev python-numpy subversion libportmidi-dev ffmpeg libswscale-dev libavformat-dev libavcodec-dev libfreetype6-dev`
-        - `pip3 install -r requirements_jetson_nano.txt`
+This article was written by Deng Shuwen, Wu Zheyuan, Zang Linfeng  and describes what they did for the racing, collection by Yu qiushuang.
 
 
-4. Enjoy
-    - For Simulator
-        - `python runner_sim.py`
-    - For physical car
-        - `python runner_jetson.py` or `python3 runner_jetson.py`
+![ROAR PIC](./images/ROAR.png)
+
+
+## Table of contents
+1. [Summary](#summary)
+1. [Design](#design)
+    1. [Planning](#design_planning)
+    1. [Controlling](#design_control)
+1. [Implementation](#implementation)
+    1. [Planning](#impl_planning)
+	1. [Controlling](#impl_control)
+1. [Results](#resluts)
+1. [Conculsion](#conclusion)
+    1. [Strength and weakness](#conclu_strength_and_weakness)
+    1. [Possible improvements](#conclu_possible_improvements)
+
+1. [Team](#team)
+1. [Additional materials](#add_mats)
+
+
+## Summary <a name="summary"></a>
+
+This year, we were invited to [Berkeley’s ROAR competition](https://vivecenter.berkeley.edu/research1/roar/), in which teams race 1/10th scale self-driving cars in a digital platform with a fixed racing track.The end goal of this competition is to maximize the speed in premise of ensuring minimal (acceptable) collisions.
+
+To accomplish this goal, we spent two weeks improving our car’s performance. For the first week, we worked individually with regular online communication and managed to optimize our waypoints. For the second week, we spent two days working collaboratively and improved all the other things, including the structure of PID controller, look-ahead values and K values.
+
+The final result showed its effectiveness. The maximum single lap time was 77.15s, while the total 10-lap time was 1104s. Because of the considerable speed, we were fortunate enough to win the second place and the Fastest Lap Time Award in this year’s 2020 ROAR S1 series .
