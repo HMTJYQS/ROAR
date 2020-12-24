@@ -1,6 +1,6 @@
 # Robot Open Autonomous Racing (ROAR)
 ### To Contribute
-- Please click the (https://hmtjyqs.github.io/ROAR/) to see more details of our project
+- Please click the (https://hmtjyqs.github.io/ROAR/)[https://hmtjyqs.github.io/ROAR/] to see more details of our project
 
     - For a more in-depth tutorial on recommended setup [video](https://youtu.be/VA13dAZ9iAw)
 - Please follow suggested guidelines on Pull Request. 
