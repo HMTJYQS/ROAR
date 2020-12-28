@@ -161,7 +161,7 @@ def main():
 
 New Waypoint            |   Original Waypoint
 :------------------------------:|:-----------------------------:
-![Old](./videos/newwaypoint.avi) | ![New](./videos/oriwaypoint.avi)
+![Old](./videos/newwaypoint.gif) | ![New](./videos/oriwaypoint.gif)
 
 ### Controlling <a name="impl_control"></a>
 
