@@ -162,3 +162,13 @@ def main():
 New Waypoint            |   Original Waypoint
 :------------------------------:|:-----------------------------:
 ![Old](./videos/newwaypoint.avi) | ![New](./videos/oriwaypoint.avi)
+
+### Controlling <a name="impl_control"></a>
+
+Based on our experience in tuning,the overall PID parameter adjustment is based on the following principles:
+
+`Kp = -0.02v + 3.2, Ki = 0.1, Kd = 0.03`
+
+At the speed of 155km/h (the speed at the third turn) and 120km/h, modify `ROAR/ROAR-Sim/configurations/pid_config.json` to set Kp = 0.8, (to make the
+turning radius small enough).
+
