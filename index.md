@@ -50,7 +50,7 @@ Base on the above conditions, we provide two ways to improving the project.
 So we split the task into 3 parts-planning, controlling, racing.
 
 
-## Planning <a name="design_planning"></a>
+### Planning <a name="design_planning"></a>
 
 Initially, we use waypoints provided by the original codes.,However, during the test, we found a severe problem with this set of waypoints. During simulation, in the third turn and the following long straight track,  the car following these  waypoints would experience a sharp turning.  Meanwhile, The speed would also sharp down. Through observation, we found that the reason for this phenomenon was that the car trended speeding up on the straight track, while the  waypoints provided by the original codes  were unevenly distributed and sparse, resulting in  improper selection of the next waypoint . .Since the PID controller adopted by the car directly controlled steering and throttle based on waypoints without considering the actual motion of the car, a poor selection of waypoints would cause sharp changes in steering and throttle, leading to oscillation of the car.
 
@@ -61,3 +61,24 @@ Moreover, to increase the car’s speed waypoints can be further optimized based
 
 Therefore, in the planning module, we needed to create a set of waypoints that was more evenly distributed and intensive. Because the only  obstacles other than walls i were three stationary NPC cars, stationary gasoline barrels , we did not use additional sensors (RGB cameras, etc.) and perception modules to generate the waypoints. 
 Instead, waypoints were manually generated with a waypoint generating agent `ROAR/agent_module/special_agent/waypoint_generating_agent.py` .
+
+
+### Controlling <a name="design_control"></a>
+
+The control unit of the car receives the coordinates of the next waypoint and the target speed. Based on these data, the controller would then calculate the difference between the coordinates of the current position and the target position as well as between the current speed and the target speed.
+
+#### PID controller
+
+The PID controller was provided to us, which is actually a control algorithm that works on a closed-loop system that consists of three parts, namely, the P proportional part  , the I integral part, and the D differential part.
+The loop was as followed:
+
+```
+{
+ error = target value - actual value
+P output is Kp * error
+I output += Ki*  error
+D output =Kd * ( error - last error) /* Because the software implementation is discrete, differential */ is replaced by difference
+PID output = P output +I output +D output
+Last error =  error /* Update the last error value before each cycle ends */
+}
+```
