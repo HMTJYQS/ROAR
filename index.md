@@ -136,3 +136,29 @@ class WaypointGeneratigAgent(Agent):
         self.output_file = self.output_file_path.open('w')
 ```
 
+Add the `waypointGeneratigAgent` module to the `runner_sim.py` file, change the `use_manual_control` to `True` in the `start_game_loop` function, and the final generated file will be stored in `ROAR/data/output`.
+
+```python3
+from ROAR.agent_module.special_agents.waypoint_generating_agent import WaypointGeneratigAgent
+
+def main():
+    agent_config = AgentConfig.parse_file(Path("./ROAR_Sim/configurations/agent_configuration.json"))
+    carla_config = CarlaConfig.parse_file(Path("./ROAR_Sim/configurations/configuration.json"))
+
+    carla_runner = CarlaRunner(carla_settings=carla_config,
+                               agent_settings=agent_config,
+                               npc_agent_class=PurePursuitAgent)
+    try:
+        my_vehicle = carla_runner.set_carla_world()
+        agent = WaypointGeneratigAgent(vehicle=my_vehicle, agent_settings=agent_config)
+        carla_runner.start_game_loop(agent=agent, use_manual_control=True)
+    except Exception as e:
+        logging.error(f"Something bad happened during initialization: {e}")
+        carla_runner.on_finish()
+        logging.error(f"{e}. Might be a good idea to restart Server")
+```
+
+
+New Waypoint            |   Original Waypoint
+:------------------------------:|:-----------------------------:
+![Old](./videos/newwaypoint.avi) | ![New](./videos/oriwaypoint.avi)
