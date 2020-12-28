@@ -38,7 +38,7 @@ To further improve the performance, we suggest using machine learning methods fo
 Due to a lack of time we didn’t implement these methods, but we have published our codes in [Github](https://github.com/Trance-0/ROAR.git). 
 
 
-##Design < a name="design"></a>
+## Design < a name="design"></a>
 
 From the original codes we know that the car essentially used a PID controller to control the vehicle to track the path (a sequence of waypoints). The platform can provide us information including current speed, position, the value of steering and throttle. 
 
