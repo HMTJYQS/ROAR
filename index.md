@@ -92,3 +92,33 @@ We can use Simulink componet in MATLAB to simulate the system with PID and revie
 We can see that the curve in the original system tends to equilibrium half way from the target value 1 after 3s.
 
 ![after_joining_variable_P](./images/after_joining_P.png)
+
+However, after we add the variable P, the time for equilibrating is reduced to less than 2s, and the distance to the target value 1 is shortened, but there is still a distance that cannot be eliminated by adding the variable P.
+
+![after_joining_varible_P_I](./images/after_joining_P_I.png)
+
+After adding the variable I, the vertical coordinate at stabilization matches the target value 1, by which we eliminate the steady-state error with the help of the I link.
+
+![after_joining_varible_P_I_D](./images/after_joining_P_I_D.png)
+
+Analogizing the curve as the motion of the vehicle, it is found that PID helps achieve accurate and faster controlling .
+
+However, the following difficulties were found while applying to reality:
+1. Adjusting PID parameters only can not effectively increase the turning angle of the vehicle at the third turn, which thus likely causes collisions and overturn accidents.
+
+![sketch_map](./images/sketch_map.png)
+
+1. The overall PID controlling strategy conflicts with the requirement of speeding up.
+
+During simulation, with the increase in speed, Kp value decreases. After repeated attempts, we found that the vehicle deceleration was unavoidable after the third turn. In order to achieve a faster speed, the vehicle need keep accelerating before passing through the turn. If this can be achieved, the speed of the vehicle at the third turn would reach 155-165km/h. The test proves that the position corresponding to 155km/h and 120km/h at the turn is the key position, and Kp value under this speed must be large enough to ensure the vehicle makes a significant enough turning. After
+the turn, the speed will fall to about 90km/h, and then rise slowly , the acceleration process if the car only relies on the PID controller, it will choose the corresponding control parameters according to the corresponding speed to adjust the throttle and steering, the Kp value for 120km/h is too large, causing the system violently shock or even lead to system dispersion, thus result in violent steering and continuous speed decline to a certain value so that it can stabilize. This is the reason why the car is unable to accelerate continuously in this straight line part of the track.
+
+Thus there is a conflict between the choice of kp value and the increase of speed.
+
+To address the issues above, we designed additional control variables and made improvements in the following areas.
+
+- Multiple sets of PID control parameters are set for the speed at the turning position. Because the turning position is the key position to be controlled, we set special PID parameters in order to make the vehicle movement smoother and to prevent the sharp changes of position at high speed of the vehicle.
+- Set the segmentation function to select the appropriate steering constraint on vehicle turning angle
+
+## Implementation <a name="implementation"></a>
+
