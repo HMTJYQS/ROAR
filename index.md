@@ -108,7 +108,7 @@ However, the following difficulties were found while applying to reality:
 
 ![sketch_map](./images/sketch_map.png)
 
-1. The overall PID controlling strategy conflicts with the requirement of speeding up.
+2. The overall PID controlling strategy conflicts with the requirement of speeding up.
 
 During simulation, with the increase in speed, Kp value decreases. After repeated attempts, we found that the vehicle deceleration was unavoidable after the third turn. In order to achieve a faster speed, the vehicle need keep accelerating before passing through the turn. If this can be achieved, the speed of the vehicle at the third turn would reach 155-165km/h. The test proves that the position corresponding to 155km/h and 120km/h at the turn is the key position, and Kp value under this speed must be large enough to ensure the vehicle makes a significant enough turning. After
 the turn, the speed will fall to about 90km/h, and then rise slowly , the acceleration process if the car only relies on the PID controller, it will choose the corresponding control parameters according to the corresponding speed to adjust the throttle and steering, the Kp value for 120km/h is too large, causing the system violently shock or even lead to system dispersion, thus result in violent steering and continuous speed decline to a certain value so that it can stabilize. This is the reason why the car is unable to accelerate continuously in this straight line part of the track.
