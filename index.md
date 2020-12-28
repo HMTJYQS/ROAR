@@ -82,3 +82,11 @@ PID output = P output +I output +D output
 Last error =  error /* Update the last error value before each cycle ends */
 }
 ```
+
+We can use Simulink componet in MATLAB to simulate the system with PID and review the role of each PID link in controlling the system.Using MARLAB, we can have a more intuitionistic understanding of how PID controller works.
+
+![a_closed-loop_system_with_a_PID_controller](./images/A closed-loop system with a PID controller.png)
+
+![orginal_system](./images/original system.png)
+
+We can see that the curve in the original system tends to equilibrium half way from the target value 1 after 3s.
