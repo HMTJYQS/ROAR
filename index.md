@@ -90,3 +90,5 @@ We can use Simulink componet in MATLAB to simulate the system with PID and revie
 ![orginal_system](./images/original_system.png)
 
 We can see that the curve in the original system tends to equilibrium half way from the target value 1 after 3s.
+
+![after_joining_variable_P](./images/after_joining_P.png)
