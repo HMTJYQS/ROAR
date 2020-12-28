@@ -122,3 +122,17 @@ To address the issues above, we designed additional control variables and made i
 
 ## Implementation <a name="implementation"></a>
 
+### Planning <a name="impl_planningn"></a>
+
+The process for manually generating waypoints is as follows:
+
+- Add the following code to `ROAR/agent_module/special_agents/waypoint_generating_agent.py` to generateand save the waypoints.
+
+```python3
+class WaypointGeneratigAgent(Agent):
+    def __init__(self, vehicle: Vehicle, agent_settings: AgentConfig, **kwargs):
+        super().__init__(vehicle=vehicle, agent_settings=agent_settings, **kwargs)
+        self.output_file_path: Path = self.output_folder_path / "easy_map_waypoints.txt"
+        self.output_file = self.output_file_path.open('w')
+```
+
