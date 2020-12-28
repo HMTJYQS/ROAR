@@ -172,3 +172,70 @@ Based on our experience in tuning,the overall PID parameter adjustment is based 
 At the speed of 155km/h (the speed at the third turn) and 120km/h, modify `ROAR/ROAR-Sim/configurations/pid_config.json` to set Kp = 0.8, (to make the
 turning radius small enough).
 
+- Set the steering and throttle at the third turn of the vehicle by adding the following code to `ROAR/ Control_module/pid_control.py`:
+
+```python3
+if x> 360 and x<390 and z>-60 and z<20:
+    throttle=0.9
+    steering = 0.9
+```
+
+- The actual coordinates of the vehicle are used to determine the location of the vehicle, so that the steering and throttle output of the vehicle is constant when the straight track conditions are matched.
+
+```python3
+def run_in_series(self, next_waypoint: Transform, **kwargs) -> VehicleControl:
+    throttle = self.long_pid_controller.run_in_series(next_waypoint=next_waypoint,
+                                                      target_speed=kwargs.get("target_speed", self.max_speed))
+    steering,x,y,z= self.lat_pid_controller.run_in_series(next_waypoint=next_waypoint)
+    if y>0.8 or (x>-390 and x<0 and z<91):
+        if steering>0:
+            steering=0.01
+        else:
+            steering=-0.01
+```
+
+Steering lock            |   Steering on
+:------------------------------:|:-----------------------------:
+![Old](./videos/sterringlock_front_on.gif) | ![New](./videos/sterringlock_removed_front.gif)
+
+- Set the steering angle for the fourth turn.
+
+Since the vehicle speed has reached about 180km/h after straight line acceleration, in the high-speed movement of the fourth turn angle is also very important, due to time constraints, no mathematical relationship was established between the coordinates and the angle of the turn., through the test measured the appropriate turn angle for steering = -0.4, and keep the throttle always in the acceleration state.
+
+```python3
+if x> -570 and x<-420 and z<80 and z>10:
+    # throttle=0.9
+    steering = -0.4
+```
+
+Steering = -0.4           |   no specific Steering 
+:------------------------------:|:-----------------------------:
+![Old](./videos/specification_4_on.gif) | ![New](./videos/specification_4_removed.gif)
+
+
+## Conclusion <a name="conclusion"></a>
+
+We spent two weeks on our projects. For the first week, we spent one hour each day to work individually and maintained a regular online meeting every night. However, we didn’t assign tasks to each members. Instead, every member tried the same tasks and updated his results in regular meetings. This was of low efficiency. Also, we found out that for different computers, the results varied greatly, this problem bothered us a lot since we worked separately in different computers. Moreover, the results also diverged when we ran the codes repeatedly. Fortunately, we solved this problem after emailing Micheal, who offered a easy solution to this problem (as seen in [Additional material](https://github.com/augcog/ROAR_Sim/blob/2beb408e5dae0c879cff6912d3d26034f187076b/configurations/agent_configuration.json)).
+In the second week, we work collaboratively in the same computer instead of individually, by which we better unified the results and assigned tasks. Also, we frequently sent some emails to Micheal for help. This greatly improved our efficiency. In fact, during the second week, we only spent two days together finishing literally every things other than improving the waypoints.
+
+In the end, the goal of better moving route and smoother turning is realized, and the problem of vehicle motion shock is solved and ensuring the vehicle is accelerating all the time in the whole driving process.
+
+### Strength and weakness<a name="conclu_strength_and_weakness"></a>
+
+
+*Strength*
+
+1. The car accelerates all the time (throttle was always 1), with maximum speed reaching 180km/h.
+1. The car is with a high possibility of reaching destination successfully.
+
+*Weakness*
+
+1. There are still small collisions while passing the third turn. 
+1. The conditions of activating are too specific, which makes it less effective when applying to other racing tracks. 
+1. The configurations of PID agent are mostly empirical. 
+1. Waypoints are chosen mostly based on experience and with no clear methodology.
+
+*Possible improvement*
+
+1. Develop a general function between the curvature and steering. You can get the curvature by calculating the slope of waypoints or use techniques related to computer vision. Try to identify the basic relations between variables before using machine learning to train it. 
+1. try machine learning techniques like deep learning to get suitable configurations and waypoints.
