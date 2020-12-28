@@ -44,7 +44,7 @@ From the original codes we know that the car essentially used a PID controller t
 
 Base on the above conditions, we provide two ways to improving the project.
 
-- Rebuilding a better waypoint text file which can make sure a better way for car to following;
+- Rebuilding a better waypoint text file which can make sure a better way for car to following.
 - Connecting the steering and throttle with the actual coordinates of the car.
 
 So we split the task into 3 parts-planning, controlling, racing.
@@ -54,10 +54,10 @@ So we split the task into 3 parts-planning, controlling, racing.
 
 Initially, we use waypoints provided by the original codes.,However, during the test, we found a severe problem with this set of waypoints. During simulation, in the third turn and the following long straight track,  the car following these  waypoints would experience a sharp turning.  Meanwhile, The speed would also sharp down. Through observation, we found that the reason for this phenomenon was that the car trended speeding up on the straight track, while the  waypoints provided by the original codes  were unevenly distributed and sparse, resulting in  improper selection of the next waypoint . .Since the PID controller adopted by the car directly controlled steering and throttle based on waypoints without considering the actual motion of the car, a poor selection of waypoints would cause sharp changes in steering and throttle, leading to oscillation of the car.
 
-Moreover, to increase the car’s speed waypoints can be further optimized based on two principles;
+Moreover, to increase the car’s speed waypoints can be further optimized based on two principles:
 
-- While in straight tracks, drive as close as possible to the inside lane ;(especially for the first turn)
+- While in straight tracks, drive as close as possible to the inside lane.(especially for the first turn)
 - Minimize the turning radius.
 
 Therefore, in the planning module, we needed to create a set of waypoints that was more evenly distributed and intensive. Because the only  obstacles other than walls i were three stationary NPC cars, stationary gasoline barrels , we did not use additional sensors (RGB cameras, etc.) and perception modules to generate the waypoints. 
-Instead, waypoints were manually generated with a waypoint generating agent 'ROAR/agent_module/special_agent/waypoint_generating_agent.py' .
+Instead, waypoints were manually generated with a waypoint generating agent `ROAR/agent_module/special_agent/waypoint_generating_agent.py` .
