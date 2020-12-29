@@ -251,7 +251,7 @@ In the end, the goal of better moving route and smoother turning is realized, an
 **Deng Shuwen.**
 
 
-## Aditional Materials <a name="add_mats"><?a>
+## Aditional Materials <a name="add_mats"></a>
 
 Here are some relevent links and references:
  [the general ROAR competition](https://vivecenter.berkeley.edu/research1/roar/), 
