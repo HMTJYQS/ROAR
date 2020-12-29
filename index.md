@@ -67,7 +67,7 @@ Instead, waypoints were manually generated with a waypoint generating agent `ROA
 
 The control unit of the car receives the coordinates of the next waypoint and the target speed. Based on these data, the controller would then calculate the difference between the coordinates of the current position and the target position as well as between the current speed and the target speed.
 
-#### PID controller
+#### PID controller<sup>[1]</sup>
 
 The PID controller was provided to us, which is actually a control algorithm that works on a closed-loop system that consists of three parts, namely, the P proportional part  , the I integral part, and the D differential part.
 The loop was as followed:
