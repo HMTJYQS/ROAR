@@ -254,8 +254,11 @@ In the end, the goal of better moving route and smoother turning is realized, an
 ## Aditional Materials <a name="add_mats"></a>
 
 Here are some relevent links and references:
+
  [the general ROAR competition](https://vivecenter.berkeley.edu/research1/roar/), 
  [the ROAR starter code](https://github.com/augcog/ROAR),
  [our own code](https://github.com/Trance-0/ROAR.git) that we wrote for this project. 
+ 
  references: 
+ 
  [1](https://mp.weixin.qq.com/s/yZNwcY1DLry6C5ZAaFnl3g)PID controller
