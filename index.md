@@ -239,3 +239,21 @@ In the end, the goal of better moving route and smoother turning is realized, an
 
 1. Develop a general function between the curvature and steering. You can get the curvature by calculating the slope of waypoints or use techniques related to computer vision. Try to identify the basic relations between variables before using machine learning to train it. 
 1. try machine learning techniques like deep learning to get suitable configurations and waypoints.
+
+## Team<a name="team"></a>
+
+**Wu Zheyuan.** 
+
+**Zang Linfeng.**
+
+**Deng Shuwen.**
+
+
+## Aditional Materials <a name="add_mats"><?a>
+
+Here are some relevent links and references:
+ [the general ROAR competition](https://vivecenter.berkeley.edu/research1/roar/), 
+ [the ROAR starter code](https://github.com/augcog/ROAR),
+ [our own code](https://github.com/Trance-0/ROAR.git) that we wrote for this project. 
+ references: 
+ [1](https://mp.weixin.qq.com/s/yZNwcY1DLry6C5ZAaFnl3g)PID controller
