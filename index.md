@@ -215,6 +215,8 @@ Steering = -0.4           |   no specific Steering
 
 ## Conclusion <a name="conclusion"></a>
 
+{% include youtubePlayer.html id="3G00NNPGCx4" %}
+
 We spent two weeks on our projects. For the first week, we spent one hour each day to work individually and maintained a regular online meeting every night. However, we didn’t assign tasks to each members. Instead, every member tried the same tasks and updated his results in regular meetings. This was of low efficiency. Also, we found out that for different computers, the results varied greatly, this problem bothered us a lot since we worked separately in different computers. Moreover, the results also diverged when we ran the codes repeatedly. Fortunately, we solved this problem after emailing Micheal, who offered a easy solution to this problem (as seen in [Additional material](https://github.com/augcog/ROAR_Sim/blob/2beb408e5dae0c879cff6912d3d26034f187076b/configurations/agent_configuration.json)).
 In the second week, we work collaboratively in the same computer instead of individually, by which we better unified the results and assigned tasks. Also, we frequently sent some emails to Micheal for help. This greatly improved our efficiency. In fact, during the second week, we only spent two days together finishing literally every things other than improving the waypoints.
 
