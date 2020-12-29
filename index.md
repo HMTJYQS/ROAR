@@ -263,4 +263,3 @@ Here are some relevent links and references:
  
  [1](https://mp.weixin.qq.com/s/yZNwcY1DLry6C5ZAaFnl3g)PID controller
  
- Thanks for the support from professor Allen Yang and our TAs Michael Wu and Yu qiushuang!
