@@ -244,11 +244,11 @@ In the end, the goal of better moving route and smoother turning is realized, an
 
 ## Team<a name="team"></a>
 
-**Wu Zheyuan.** 
+**Wu Zheyuan.** Zheyuan Wu is a second-year student at Yali High School. He has learned Artificial intelligence for one year by the course from ROAR and interested in it. For this project, he imporved pid controller by adjusting the steering at turns and helped other group members simulate and adjust their work.
 
-**Zang Linfeng.**
+**Zang Linfeng.** Linfeng Zang is a junior student from Yali High school who plan to major in CS.
 
-**Deng Shuwen.**
+**Deng Shuwen.** Shuwen Deng is a second-year student at Yali High School.  In this project, he is mainly responsible for the debugging of PID control system, repeating the feasible code given by his teammates.
 
 
 ## Aditional Materials <a name="add_mats"></a>
